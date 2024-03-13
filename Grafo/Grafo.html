@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Grafo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Grafo</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/fabiano/Dropbox/%40Drive/Pesquisa/LivroJayme/Grafo.py">/home/fabiano/Dropbox/@Drive/Pesquisa/LivroJayme/Grafo.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Grafo.html#Grafo">Grafo</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Grafo.html#GrafoListaAdj">GrafoListaAdj</a>
+</font></dt><dt><font face="helvetica, arial"><a href="Grafo.html#GrafoMatrizAdj">GrafoMatrizAdj</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Grafo">class <strong>Grafo</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Classe&nbsp;base&nbsp;para&nbsp;as&nbsp;classes&nbsp;<a href="#GrafoListaAdj">GrafoListaAdj</a>&nbsp;e&nbsp;<a href="#GrafoMatrizAdj">GrafoMatrizAdj</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Grafo-DefinirAtrV"><strong>DefinirAtrV</strong></a>(self, v, atr)</dt><dd><tt>Define&nbsp;os&nbsp;atributos&nbsp;atr&nbsp;do&nbsp;vértice&nbsp;v.&nbsp;Exemplo:&nbsp;atr='fillcolor=yellow&nbsp;shape=box'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-DefinirN"><strong>DefinirN</strong></a>(self, n, RotulosV=None)</dt><dd><tt>Define&nbsp;o&nbsp;número&nbsp;de&nbsp;vértices&nbsp;como&nbsp;n&nbsp;e&nbsp;atribui&nbsp;o&nbsp;rótulo&nbsp;RotulosV[i]&nbsp;para&nbsp;o&nbsp;i-ésimo&nbsp;vértice.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-DefinirSubgrafo"><strong>DefinirSubgrafo</strong></a>(self, SubconjV, Rotulo=None)</dt><dd><tt>Define&nbsp;o&nbsp;subgrafo&nbsp;induzido&nbsp;formado&nbsp;pelos&nbsp;vérties&nbsp;em&nbsp;SubconjV,&nbsp;com&nbsp;rótulo&nbsp;Rotulo.<br>
+Subgrafos&nbsp;são&nbsp;levados&nbsp;em&nbsp;conta&nbsp;para&nbsp;o&nbsp;desenho&nbsp;do&nbsp;grafo.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-Desenhar"><strong>Desenhar</strong></a>(self, arquivoSaida='graph.png', engine='default', reduzirTempo=False)</dt><dd><tt>Gera&nbsp;o&nbsp;desenho&nbsp;do&nbsp;grafo&nbsp;no&nbsp;arquivo&nbsp;arquivoSaida&nbsp;usando&nbsp;algoritmo&nbsp;de&nbsp;layout&nbsp;indicado&nbsp;em&nbsp;engine.&nbsp;Se&nbsp;o&nbsp;grafo&nbsp;<br>
+for&nbsp;muito&nbsp;grande,&nbsp;o&nbsp;tempo&nbsp;de&nbsp;resposta&nbsp;pode&nbsp;ser&nbsp;longo&nbsp;se&nbsp;reduzirTempo=False.&nbsp;Para&nbsp;obter&nbsp;layouts&nbsp;mais&nbsp;rápidos<br>
+de&nbsp;serem&nbsp;produzidos&nbsp;(em&nbsp;detrimento&nbsp;da&nbsp;qualidade),&nbsp;utilize&nbsp;reduzirTempo=True.<br>
+Para&nbsp;a&nbsp;geração&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;imagem,&nbsp;é&nbsp;necessário&nbsp;ter&nbsp;o&nbsp;GraphViz&nbsp;instalado&nbsp;no&nbsp;ambiente:&nbsp;<a href="http://www.graphviz.org">http://www.graphviz.org</a><br>
+Usuários&nbsp;Ubuntu:&nbsp;'sudo&nbsp;apt-get&nbsp;install&nbsp;graphviz'</tt></dd></dl>
+
+<dl><dt><a name="Grafo-E"><strong>E</strong></a>(self)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;arestas&nbsp;uv,&nbsp;onde&nbsp;u&nbsp;é&nbsp;um&nbsp;inteiro&nbsp;e&nbsp;v&nbsp;é&nbsp;um&nbsp;inteiro&nbsp;se&nbsp;o&nbsp;grafo&nbsp;é&nbsp;<a href="#GrafoMatrizAdj">GrafoMatrizAdj</a><br>
+ou&nbsp;v&nbsp;é&nbsp;<a href="#GrafoListaAdj">GrafoListaAdj</a>.NoAresta,&nbsp;caso&nbsp;contrário.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-Ler"><strong>Ler</strong></a>(self, formato='digitado', textoAuxilio=False)</dt><dd><tt>Lê&nbsp;um&nbsp;grafo&nbsp;da&nbsp;entrada&nbsp;padrão.<br>
+Parâmetros:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitado&nbsp;=&nbsp;digitado/graph6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(formato&nbsp;'graph6'&nbsp;necessita&nbsp;ter&nbsp;o&nbsp;nauty&nbsp;instalado&nbsp;no&nbsp;ambiente:&nbsp;<a href="http://pallini.di.uniroma1.it/">http://pallini.di.uniroma1.it/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuários&nbsp;Ubuntu:&nbsp;'sudo&nbsp;apt-get&nbsp;install&nbsp;nauty'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</tt></dd></dl>
+
+<dl><dt><a name="Grafo-ObterAtrV"><strong>ObterAtrV</strong></a>(self, v)</dt><dd><tt>Retorna&nbsp;os&nbsp;atributos&nbsp;do&nbsp;vértice&nbsp;v.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-ObterRotuloV"><strong>ObterRotuloV</strong></a>(self, v)</dt><dd><tt>Retorna&nbsp;o&nbsp;rótulo&nbsp;do&nbsp;vértice&nbsp;v.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-ObterVdeRotulo"><strong>ObterVdeRotulo</strong></a>(self, rotulo)</dt><dd><tt>Retorna&nbsp;o&nbsp;vértice&nbsp;com&nbsp;o&nbsp;dado&nbsp;rótulo.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-V"><strong>V</strong></a>(self)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;vértices.</tt></dd></dl>
+
+<dl><dt><a name="Grafo-__init__"><strong>__init__</strong></a>(self, orientado=False)</dt><dd><tt><a href="#Grafo">Grafo</a>&nbsp;se&nbsp;orientado=False&nbsp;ou&nbsp;Digrafo&nbsp;se&nbsp;orientado=True.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GrafoListaAdj">class <strong>GrafoListaAdj</strong></a>(<a href="Grafo.html#Grafo">Grafo</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="Grafo.html#GrafoListaAdj">GrafoListaAdj</a></dd>
+<dd><a href="Grafo.html#Grafo">Grafo</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GrafoListaAdj-AdicionarAresta"><strong>AdicionarAresta</strong></a>(self, u, v, atr='')</dt><dd><tt>Adiciona&nbsp;aresta&nbsp;uv&nbsp;com&nbsp;atributo&nbsp;atr&nbsp;ao&nbsp;grafo.&nbsp;Exemplo,&nbsp;atr='label="abc"&nbsp;color=blue'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-DefinirAtrE"><strong>DefinirAtrE</strong></a>(self, uv, atr)</dt><dd><tt>Define&nbsp;os&nbsp;atributos&nbsp;atr&nbsp;da&nbsp;aresta&nbsp;uv.&nbsp;Exemplo:&nbsp;atr='fillcolor=yellow&nbsp;shape=box'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-DefinirN"><strong>DefinirN</strong></a>(self, n, RotulosV=None)</dt><dd><tt>Define&nbsp;o&nbsp;número&nbsp;de&nbsp;vértices&nbsp;como&nbsp;n&nbsp;e&nbsp;atribui&nbsp;o&nbsp;rótulo&nbsp;RotulosV[i]&nbsp;para&nbsp;o&nbsp;i-ésimo&nbsp;vértice.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-EhAresta"><strong>EhAresta</strong></a>(self, u, v)</dt><dd><tt>Retorna&nbsp;True&nbsp;se&nbsp;uv&nbsp;é&nbsp;uma&nbsp;aresta&nbsp;e&nbsp;False,&nbsp;caso&nbsp;contrário.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-N"><strong>N</strong></a>(self, v, Tipo='*', Fechada=False, IterarSobreNo=False)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;<a href="#Grafo">Grafo</a>.NoAresta&nbsp;representando&nbsp;os&nbsp;vizinhos&nbsp;do&nbsp;vértice&nbsp;v.&nbsp;<br>
+Se&nbsp;Fechada=True,&nbsp;o&nbsp;próprio&nbsp;v&nbsp;é&nbsp;incluido&nbsp;na&nbsp;lista.<br>
+Tipo="*"&nbsp;significa&nbsp;listar&nbsp;todas&nbsp;as&nbsp;arestas&nbsp;incidentes&nbsp;em&nbsp;v.&nbsp;Se&nbsp;G&nbsp;é&nbsp;orientado,&nbsp;<br>
+Tipo="+"&nbsp;(resp.&nbsp;"-")&nbsp;significa&nbsp;listar&nbsp;apenas&nbsp;as&nbsp;arestas&nbsp;de&nbsp;saída&nbsp;(resp.&nbsp;entrada)&nbsp;de&nbsp;v.<br>
+IterarSobreNo=False&nbsp;indica&nbsp;que&nbsp;a&nbsp;lista&nbsp;de&nbsp;vizinhos&nbsp;constitue-se&nbsp;da&nbsp;lista&nbsp;de&nbsp;vértices&nbsp;(inteiros).&nbsp;Caso<br>
+contrário,&nbsp;a&nbsp;lista&nbsp;é&nbsp;de&nbsp;NoAresta.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-ObterAtrE"><strong>ObterAtrE</strong></a>(self, uv)</dt><dd><tt>Retorna&nbsp;os&nbsp;atributos&nbsp;da&nbsp;aresta&nbsp;uv.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>Aresta</strong> = &lt;class 'Grafo.GrafoListaAdj.Aresta'&gt;<dd><tt>Objeto&nbsp;único&nbsp;para&nbsp;representar&nbsp;a&nbsp;aresta.<br>
+Atributos:<br>
+-&nbsp;v1&nbsp;(um&nbsp;dos&nbsp;vértices&nbsp;desta&nbsp;aresta)<br>
+-&nbsp;v2&nbsp;(o&nbsp;outro&nbsp;vértice&nbsp;desta&nbsp;aresta)<br>
+-&nbsp;atr&nbsp;(atributos)</tt></dl>
+
+<dl><dt><strong>NoAresta</strong> = &lt;class 'Grafo.GrafoListaAdj.NoAresta'&gt;<dd><tt>Objeto&nbsp;nó&nbsp;da&nbsp;lista&nbsp;de&nbsp;adjacência.<br>
+Atributos:<br>
+-&nbsp;Viz&nbsp;(vizinho)<br>
+-&nbsp;e&nbsp;(Aresta)<br>
+-&nbsp;Prox&nbsp;(próxima&nbsp;aresta&nbsp;na&nbsp;lista&nbsp;de&nbsp;adjacência)</tt></dl>
+
+<hr>
+Methods inherited from <a href="Grafo.html#Grafo">Grafo</a>:<br>
+<dl><dt><a name="GrafoListaAdj-DefinirAtrV"><strong>DefinirAtrV</strong></a>(self, v, atr)</dt><dd><tt>Define&nbsp;os&nbsp;atributos&nbsp;atr&nbsp;do&nbsp;vértice&nbsp;v.&nbsp;Exemplo:&nbsp;atr='fillcolor=yellow&nbsp;shape=box'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-DefinirSubgrafo"><strong>DefinirSubgrafo</strong></a>(self, SubconjV, Rotulo=None)</dt><dd><tt>Define&nbsp;o&nbsp;subgrafo&nbsp;induzido&nbsp;formado&nbsp;pelos&nbsp;vérties&nbsp;em&nbsp;SubconjV,&nbsp;com&nbsp;rótulo&nbsp;Rotulo.<br>
+Subgrafos&nbsp;são&nbsp;levados&nbsp;em&nbsp;conta&nbsp;para&nbsp;o&nbsp;desenho&nbsp;do&nbsp;grafo.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-Desenhar"><strong>Desenhar</strong></a>(self, arquivoSaida='graph.png', engine='default', reduzirTempo=False)</dt><dd><tt>Gera&nbsp;o&nbsp;desenho&nbsp;do&nbsp;grafo&nbsp;no&nbsp;arquivo&nbsp;arquivoSaida&nbsp;usando&nbsp;algoritmo&nbsp;de&nbsp;layout&nbsp;indicado&nbsp;em&nbsp;engine.&nbsp;Se&nbsp;o&nbsp;grafo&nbsp;<br>
+for&nbsp;muito&nbsp;grande,&nbsp;o&nbsp;tempo&nbsp;de&nbsp;resposta&nbsp;pode&nbsp;ser&nbsp;longo&nbsp;se&nbsp;reduzirTempo=False.&nbsp;Para&nbsp;obter&nbsp;layouts&nbsp;mais&nbsp;rápidos<br>
+de&nbsp;serem&nbsp;produzidos&nbsp;(em&nbsp;detrimento&nbsp;da&nbsp;qualidade),&nbsp;utilize&nbsp;reduzirTempo=True.<br>
+Para&nbsp;a&nbsp;geração&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;imagem,&nbsp;é&nbsp;necessário&nbsp;ter&nbsp;o&nbsp;GraphViz&nbsp;instalado&nbsp;no&nbsp;ambiente:&nbsp;<a href="http://www.graphviz.org">http://www.graphviz.org</a><br>
+Usuários&nbsp;Ubuntu:&nbsp;'sudo&nbsp;apt-get&nbsp;install&nbsp;graphviz'</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-E"><strong>E</strong></a>(self)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;arestas&nbsp;uv,&nbsp;onde&nbsp;u&nbsp;é&nbsp;um&nbsp;inteiro&nbsp;e&nbsp;v&nbsp;é&nbsp;um&nbsp;inteiro&nbsp;se&nbsp;o&nbsp;grafo&nbsp;é&nbsp;<a href="#GrafoMatrizAdj">GrafoMatrizAdj</a><br>
+ou&nbsp;v&nbsp;é&nbsp;<a href="#GrafoListaAdj">GrafoListaAdj</a>.NoAresta,&nbsp;caso&nbsp;contrário.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-Ler"><strong>Ler</strong></a>(self, formato='digitado', textoAuxilio=False)</dt><dd><tt>Lê&nbsp;um&nbsp;grafo&nbsp;da&nbsp;entrada&nbsp;padrão.<br>
+Parâmetros:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitado&nbsp;=&nbsp;digitado/graph6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(formato&nbsp;'graph6'&nbsp;necessita&nbsp;ter&nbsp;o&nbsp;nauty&nbsp;instalado&nbsp;no&nbsp;ambiente:&nbsp;<a href="http://pallini.di.uniroma1.it/">http://pallini.di.uniroma1.it/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuários&nbsp;Ubuntu:&nbsp;'sudo&nbsp;apt-get&nbsp;install&nbsp;nauty'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-ObterAtrV"><strong>ObterAtrV</strong></a>(self, v)</dt><dd><tt>Retorna&nbsp;os&nbsp;atributos&nbsp;do&nbsp;vértice&nbsp;v.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-ObterRotuloV"><strong>ObterRotuloV</strong></a>(self, v)</dt><dd><tt>Retorna&nbsp;o&nbsp;rótulo&nbsp;do&nbsp;vértice&nbsp;v.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-ObterVdeRotulo"><strong>ObterVdeRotulo</strong></a>(self, rotulo)</dt><dd><tt>Retorna&nbsp;o&nbsp;vértice&nbsp;com&nbsp;o&nbsp;dado&nbsp;rótulo.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-V"><strong>V</strong></a>(self)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;vértices.</tt></dd></dl>
+
+<dl><dt><a name="GrafoListaAdj-__init__"><strong>__init__</strong></a>(self, orientado=False)</dt><dd><tt><a href="#Grafo">Grafo</a>&nbsp;se&nbsp;orientado=False&nbsp;ou&nbsp;Digrafo&nbsp;se&nbsp;orientado=True.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="Grafo.html#Grafo">Grafo</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GrafoMatrizAdj">class <strong>GrafoMatrizAdj</strong></a>(<a href="Grafo.html#Grafo">Grafo</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="Grafo.html#GrafoMatrizAdj">GrafoMatrizAdj</a></dd>
+<dd><a href="Grafo.html#Grafo">Grafo</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GrafoMatrizAdj-AdicionarAresta"><strong>AdicionarAresta</strong></a>(self, u, v, atr='')</dt><dd><tt>Adiciona&nbsp;aresta&nbsp;uv&nbsp;com&nbsp;atributo&nbsp;atr&nbsp;ao&nbsp;grafo.&nbsp;Exemplo,&nbsp;atr='label="abc"&nbsp;color=blue'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-DefinirAtrE"><strong>DefinirAtrE</strong></a>(self, u, v, atr)</dt><dd><tt>Define&nbsp;os&nbsp;atributos&nbsp;atr&nbsp;da&nbsp;aresta&nbsp;uv.&nbsp;Exemplo:&nbsp;atr='fillcolor=yellow&nbsp;shape=box'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-DefinirN"><strong>DefinirN</strong></a>(self, n, RotulosV=None)</dt><dd><tt>Define&nbsp;o&nbsp;número&nbsp;de&nbsp;vértices&nbsp;como&nbsp;n&nbsp;e&nbsp;atribui&nbsp;o&nbsp;rótulo&nbsp;RotulosV[i]&nbsp;para&nbsp;o&nbsp;i-ésimo&nbsp;vértice.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-EhAresta"><strong>EhAresta</strong></a>(self, u, v)</dt><dd><tt>Retorna&nbsp;True&nbsp;se&nbsp;uv&nbsp;é&nbsp;uma&nbsp;aresta&nbsp;e&nbsp;False,&nbsp;caso&nbsp;contrário.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-N"><strong>N</strong></a>(self, v, Tipo='*', Fechada=False, IterarSobreNo=False)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;vértices&nbsp;vizinhos&nbsp;do&nbsp;vértice&nbsp;v.&nbsp;Se&nbsp;Fechada=True,&nbsp;o&nbsp;próprio&nbsp;v&nbsp;é&nbsp;incluido&nbsp;na&nbsp;lista.<br>
+Tipo="*"&nbsp;significa&nbsp;listar&nbsp;todas&nbsp;as&nbsp;arestas&nbsp;incidentes&nbsp;em&nbsp;v.&nbsp;Se&nbsp;G&nbsp;é&nbsp;orientado,&nbsp;<br>
+Tipo="+"&nbsp;(resp.&nbsp;"-")&nbsp;significa&nbsp;listar&nbsp;apenas&nbsp;as&nbsp;arestas&nbsp;de&nbsp;saída&nbsp;(resp.&nbsp;entrada)&nbsp;de&nbsp;v.<br>
+IterarSobreNo&nbsp;não&nbsp;tem&nbsp;uso&nbsp;para&nbsp;Matriz&nbsp;de&nbsp;Adjacências.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-ObterAtrE"><strong>ObterAtrE</strong></a>(self, u, v)</dt><dd><tt>Retorna&nbsp;os&nbsp;atributos&nbsp;da&nbsp;aresta&nbsp;uv.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="Grafo.html#Grafo">Grafo</a>:<br>
+<dl><dt><a name="GrafoMatrizAdj-DefinirAtrV"><strong>DefinirAtrV</strong></a>(self, v, atr)</dt><dd><tt>Define&nbsp;os&nbsp;atributos&nbsp;atr&nbsp;do&nbsp;vértice&nbsp;v.&nbsp;Exemplo:&nbsp;atr='fillcolor=yellow&nbsp;shape=box'.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-DefinirSubgrafo"><strong>DefinirSubgrafo</strong></a>(self, SubconjV, Rotulo=None)</dt><dd><tt>Define&nbsp;o&nbsp;subgrafo&nbsp;induzido&nbsp;formado&nbsp;pelos&nbsp;vérties&nbsp;em&nbsp;SubconjV,&nbsp;com&nbsp;rótulo&nbsp;Rotulo.<br>
+Subgrafos&nbsp;são&nbsp;levados&nbsp;em&nbsp;conta&nbsp;para&nbsp;o&nbsp;desenho&nbsp;do&nbsp;grafo.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-Desenhar"><strong>Desenhar</strong></a>(self, arquivoSaida='graph.png', engine='default', reduzirTempo=False)</dt><dd><tt>Gera&nbsp;o&nbsp;desenho&nbsp;do&nbsp;grafo&nbsp;no&nbsp;arquivo&nbsp;arquivoSaida&nbsp;usando&nbsp;algoritmo&nbsp;de&nbsp;layout&nbsp;indicado&nbsp;em&nbsp;engine.&nbsp;Se&nbsp;o&nbsp;grafo&nbsp;<br>
+for&nbsp;muito&nbsp;grande,&nbsp;o&nbsp;tempo&nbsp;de&nbsp;resposta&nbsp;pode&nbsp;ser&nbsp;longo&nbsp;se&nbsp;reduzirTempo=False.&nbsp;Para&nbsp;obter&nbsp;layouts&nbsp;mais&nbsp;rápidos<br>
+de&nbsp;serem&nbsp;produzidos&nbsp;(em&nbsp;detrimento&nbsp;da&nbsp;qualidade),&nbsp;utilize&nbsp;reduzirTempo=True.<br>
+Para&nbsp;a&nbsp;geração&nbsp;do&nbsp;arquivo&nbsp;de&nbsp;imagem,&nbsp;é&nbsp;necessário&nbsp;ter&nbsp;o&nbsp;GraphViz&nbsp;instalado&nbsp;no&nbsp;ambiente:&nbsp;<a href="http://www.graphviz.org">http://www.graphviz.org</a><br>
+Usuários&nbsp;Ubuntu:&nbsp;'sudo&nbsp;apt-get&nbsp;install&nbsp;graphviz'</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-E"><strong>E</strong></a>(self)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;arestas&nbsp;uv,&nbsp;onde&nbsp;u&nbsp;é&nbsp;um&nbsp;inteiro&nbsp;e&nbsp;v&nbsp;é&nbsp;um&nbsp;inteiro&nbsp;se&nbsp;o&nbsp;grafo&nbsp;é&nbsp;<a href="#GrafoMatrizAdj">GrafoMatrizAdj</a><br>
+ou&nbsp;v&nbsp;é&nbsp;<a href="#GrafoListaAdj">GrafoListaAdj</a>.NoAresta,&nbsp;caso&nbsp;contrário.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-Ler"><strong>Ler</strong></a>(self, formato='digitado', textoAuxilio=False)</dt><dd><tt>Lê&nbsp;um&nbsp;grafo&nbsp;da&nbsp;entrada&nbsp;padrão.<br>
+Parâmetros:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;digitado&nbsp;=&nbsp;digitado/graph6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(formato&nbsp;'graph6'&nbsp;necessita&nbsp;ter&nbsp;o&nbsp;nauty&nbsp;instalado&nbsp;no&nbsp;ambiente:&nbsp;<a href="http://pallini.di.uniroma1.it/">http://pallini.di.uniroma1.it/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuários&nbsp;Ubuntu:&nbsp;'sudo&nbsp;apt-get&nbsp;install&nbsp;nauty'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-ObterAtrV"><strong>ObterAtrV</strong></a>(self, v)</dt><dd><tt>Retorna&nbsp;os&nbsp;atributos&nbsp;do&nbsp;vértice&nbsp;v.<br>
+Para&nbsp;lista&nbsp;completa&nbsp;de&nbsp;atributos&nbsp;possívels,&nbsp;consulte&nbsp;<a href="http://www.graphviz.org/doc/info/attrs.html">http://www.graphviz.org/doc/info/attrs.html</a>.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-ObterRotuloV"><strong>ObterRotuloV</strong></a>(self, v)</dt><dd><tt>Retorna&nbsp;o&nbsp;rótulo&nbsp;do&nbsp;vértice&nbsp;v.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-ObterVdeRotulo"><strong>ObterVdeRotulo</strong></a>(self, rotulo)</dt><dd><tt>Retorna&nbsp;o&nbsp;vértice&nbsp;com&nbsp;o&nbsp;dado&nbsp;rótulo.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-V"><strong>V</strong></a>(self)</dt><dd><tt>Retorna&nbsp;lista&nbsp;de&nbsp;vértices.</tt></dd></dl>
+
+<dl><dt><a name="GrafoMatrizAdj-__init__"><strong>__init__</strong></a>(self, orientado=False)</dt><dd><tt><a href="#Grafo">Grafo</a>&nbsp;se&nbsp;orientado=False&nbsp;ou&nbsp;Digrafo&nbsp;se&nbsp;orientado=True.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="Grafo.html#Grafo">Grafo</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

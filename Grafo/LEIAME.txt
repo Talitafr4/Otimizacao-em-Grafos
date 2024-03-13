@@ -1,0 +1,19 @@
+
+- Deve-se certificar da instalação do Python 3, obtível em:
+
+  . https://www.python.org/downloads/
+
+- Para documentação, veja Grafo.html.
+
+- Execute assim um exemplo:
+
+python3 Exemplo-CriandoGrafo.py <Exemplo-CriandoGrafo-Entrada.txt
+
+- Para desenho de grafo, é necessário instalar o GraphViz no ambiente:
+
+  . http://www.graphviz.org/Download.php
+  
+  (para usuários do Ubuntu, a instalação pode ser feita através do comando "sudo apt-get install graphviz")
+  
+
+
