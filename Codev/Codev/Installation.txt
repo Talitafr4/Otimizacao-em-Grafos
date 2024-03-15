@@ -1,0 +1,68 @@
+MÓDULOS
+=======
+
+Deve ser usado o Python 3.x.
+
+Se houver erros indicando falta de módulos (por exemplo, "requests"), 
+é porque essa biblioteca de Python não foi instalada em sua máquina. 
+Para fazê-lo, usar o comando:
+
+[assumindo que o Python é invocado pelo comando 'python' no seu sistema;
+ mude para o comando correto (como 'python3') caso contrário]
+
+python -m pip install requests		[ou o módulo que estiver faltando]   
+
+O comando acima supõe que o módulo PIP esteja instalado no seu Python. 
+Se a tentativa acima falhar por falta do PIP, é necessário instalá-lo antes,
+da seguinte forma.
+
+LINUX
+
+	sudo apt-get install python3 pip
+
+WINDOWS
+
+	Visite https://pip.pypa.io/en/stable/installation/ e siga as instruções.
+
+
+FERRAMENTAS EXTERNAS
+====================
+
+O arquivo de Settings.txt vem configurado com algumas ferramentas externas,
+conforme o sistema operacional, a saber:
+
+    LINUX:
+    -----
+    - Editor de Código: gedit (nativo do Linux)
+    - Compilador C++: g++ (sudo apt-get install g++)
+    - Visualizador de PDF (Navegador Chrome)
+
+    WINDOWS:
+    -------
+    - Editor de Código: Notepad++ (https://notepad-plus-plus.org/downloads/)
+    - Compilador C++: Dev-C++ 6.3 (http://www.bloodshed.net/)
+    - Visualizador de PDF (Navegador Chrome)
+
+Se não houver algumas das ferramentas acima, elas devem ser instaladas ou
+então as configurações devem ser trocadas para ferramentas equivalentes
+instaladas.
+
+Se você optar por usar exatamente as ferramentas acima, além da instalação
+dos softwares externos, deve-se certificar que os locais de instalação são os
+configurados dentro de Settings.txt. Os locais ajustados por padrão são os 
+descritos abaixo, que podem ser ajustados se necessário. Se outras ferramentas
+forem usadas, deve-se colocar nas configurações abaixo como o Codev invocará
+tal ferramenta.
+
+    LINUX:
+    -----
+    EDITOR_CMD = gedit <CODE_FILE>
+    COMPILER_CMD = g++ -o <EXE_FILE> <CODE_FILE>
+    PDF_READER = /opt/google/chrome/chrome <PDF_FILE>
+
+    WINDOWS:
+    -------
+	EDITOR_CMD = C:\\Program Files\\Notepad++\\notepad++.exe,<CODE_FILE>
+	COMPILER_CMD = C:\\Program Files (x86)\\Embarcadero\\Dev-Cpp\\TDM-GCC-64\\bin\\g++.exe,<CODE_FILE>,-o,<EXE_FILE>,-Wl,,--stack,,16777216 
+	PDF_READER = C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe,<PDF_FILE>
+
